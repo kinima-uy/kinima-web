@@ -1,6 +1,6 @@
 # Kinima · Web
 
-Landing de Kinima hecha en React (Vite). Incluye la subpágina **Kinima Photography** en `/fotografia`, que por ahora está oculta: para mostrarla, cambiá `SHOW_PHOTOGRAPHY` a `true` en `src/config.js`.
+Landing de Kinima hecha en React (Vite). Incluye la subpágina **Kinima Photography** en `/fotografia`, que por ahora está oculta: para mostrarla, cambiá `SHOW_PHOTOGRAPHY` a `true` en `src/config.js`..
 
 ## Correrla en tu compu
 
