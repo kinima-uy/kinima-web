@@ -19,8 +19,8 @@ const FAQS = [
   { c: "spo", q: "¿Quién apoya a Kinima?", a: "Nuestro sponsor principal es Robotec, que nos brinda las Raspberry Pi 5 con las que construimos el dispositivo. Además contamos con el asesoramiento de profesionales de Teletón." },
   { c: "spo", q: "¿Cómo puedo apoyar el proyecto?", a: "Como sponsor, como aliado institucional o con otras formas de apoyo como servicios, equipamiento o difusión." },
   { c: "spo", q: "¿Qué gana mi empresa al apoyar Kinima?", a: "Asociarse a un proyecto de innovación con impacto social, presencia de marca en la web y la presentación, y acceso a los avances. Las formas de reconocimiento las definimos juntos." },
-  SHOW_PHOTOGRAPHY && { c: "spo", q: "Hice una sesión de fotos con Kinima Photography, ¿cómo sigo el proyecto?", a: "Escribinos eligiendo \"Compré un paquete\" en el formulario y te mandamos el estado actualizado del proyecto." },
-  SHOW_PHOTOGRAPHY && { c: "spo", q: "¿Qué fotos hacen en Kinima Photography?", a: "Por ahora nos enfocamos en fotografía de deporte: partidos, torneos, equipos y jugadores. Igual, cualquier pedido se puede considerar: escribinos y lo hablamos." },
+  SHOW_PHOTOGRAPHY && { c: "spo", q: "Hice una sesión de fotos con Kinima Photography, ¿cómo sigo el proyecto?", a: "Escribinos eligiendo \"Ya hice una sesión de fotos\" en el formulario y te mandamos el estado actualizado del proyecto." },
+  SHOW_PHOTOGRAPHY && { c: "spo", q: "¿Qué fotos hacen en Kinima Photography?", a: "Fotografía en general: deporte, mascotas, retratos, eventos y lo que se te ocurra. Escribinos con tu idea y lo hablamos." },
   { c: "all", q: "¿Cómo puedo contactar al equipo?", a: "Con el formulario de esta página, por mail a kinima.uruguay@gmail.com o por Instagram en @kinima.uy." },
 ].filter(Boolean);
 const FILTERS = [["all", "Todas"], ["fam", "Familias"], ["pro", "Profesionales y centros"], ["spo", "Sponsors y colaboradores"]];
