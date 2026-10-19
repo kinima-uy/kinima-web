@@ -64,7 +64,7 @@ export function PhotoTeaser() {
           <p className="eyebrow">Kinima Photography</p>
           <h2>También financiamos Kinima con fotografía.</h2>
           <span className="gline" />
-          <p className="lead">Hacemos fotografía de deporte: partidos, torneos y equipos. Lo que recaudamos se usa para desarrollar Kinima. ¿Tenés otro pedido? Contanos y lo hablamos.</p>
+          <p className="lead">Hacemos fotografía de deporte: fútbol, handball, partidos, torneos y equipos. Lo que recaudamos se usa para desarrollar Kinima. ¿Tenés otro pedido? Contanos y lo hablamos.</p>
           <div className="photo-ctas"><Link className="btn btn-navy" to="/fotografia">Ver Kinima Photography <span aria-hidden="true">→</span></Link></div>
           <div className="pkg-box">
             <strong>¿Ya hiciste una sesión con nosotras?</strong>
@@ -74,8 +74,8 @@ export function PhotoTeaser() {
         </div>
         <Link className="collage" to="/fotografia" aria-label="Ver las fotos de Kinima Photography">
           <img className="a" src={asset("fotografia/futbol-01.jpg")} alt="" loading="lazy" />
-          <img className="b" src={asset("fotografia/futbol-02.jpg")} alt="" loading="lazy" />
-          <img className="c2" src={asset("fotografia/futbol-04.jpg")} alt="" loading="lazy" />
+          <img className="b" src={asset("fotografia/handball-01.jpg")} alt="" loading="lazy" />
+          <img className="c2" src={asset("fotografia/handball-09.jpg")} alt="" loading="lazy" />
         </Link>
       </div>
     </section>
