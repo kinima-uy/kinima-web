@@ -1,46 +1,52 @@
-# Kinima · Portal profesional
+# Kinima · Web
 
-Portal para que cada profesional inicie sesión, vea sus pacientes y consolas, asigne ejercicios y consulte resultados.
-Dirección prevista: **portal.kinima.uy**.
+Landing de Kinima hecha en React (Vite). Incluye la subpágina **Kinima Photography** en `/fotografia`, que por ahora está oculta: para mostrarla, cambiá `SHOW_PHOTOGRAPHY` a `true` en `src/config.js`.
 
-> Versión de diseño: funciona con **datos de prueba** (`src/data/mock.js`). Ningún dato es real.
-> Usuario de prueba: `demo@kinima.uy` · contraseña `kinima2026`.
+## Correrla en tu compu
 
-## Correrlo
+Necesitás [Node.js](https://nodejs.org) 18 o más nuevo.
+
 ```bash
 npm install
-npm run dev     # http://localhost:5173
-npm run build   # genera dist/
+npm run dev        # abre http://localhost:5173
 ```
 
-## Pantallas
-| Ruta | Pantalla |
+## Subirla a Netlify
+
+**Opción A, conectando el repo (recomendada):**
+1. Subí esta carpeta a un repositorio de GitHub.
+2. En Netlify: *Add new site → Import an existing project* y elegí el repo.
+3. Netlify lee `netlify.toml` solo: corre `npm run build` y publica la carpeta `dist`.
+
+**Opción B, arrastrando:**
+1. Corré `npm run build`.
+2. Arrastrá la carpeta `dist` a [app.netlify.com/drop](https://app.netlify.com/drop).
+
+La carpeta `dist` ya incluye el archivo `_redirects`, así que `/fotografia` funciona aunque recargues la página.
+
+### Publicar en Vercel
+Importá el repo (o subí la carpeta) en Vercel: detecta Vite solo. El archivo `vercel.json` hace que `/fotografia` y `/robotec` funcionen al recargar.
+Para el formulario, poné tu clave de [Web3Forms](https://web3forms.com) en `WEB3FORMS_KEY` dentro de `src/config.js`.
+
+### Formulario de contacto (Netlify)
+Usa **Netlify Forms**. Después de publicar, andá a *Site configuration → Forms* y activá la detección de formularios. Volvé a publicar y vas a ver el formulario `contacto`. En *Forms → Form notifications* podés hacer que cada consulta te llegue por mail.
+
+### Dominio kinima.uy
+En Netlify: *Domain management → Add a domain* y seguí los pasos para apuntar el DNS.
+
+## Dónde cambiar cada cosa
+
+| Qué | Dónde |
 |---|---|
-| `/ingresar` | Iniciar sesión |
-| `/pacientes` | Lista de pacientes (por código interno), constancia semanal, filtros |
-| `/pacientes/:id` | Ficha: puntaje por sesión, semana, asignación actual, notas, sesiones, historial |
-| `/pacientes` (arriba) | **Para revisar hoy**: avisos de la familia, consolas sin conexión, días sin jugar, bajas de puntaje, sugerencias |
-| `/pacientes/:id?tab=familia` | Mensajes con la familia y "cómo se sintió" después de cada sesión |
-| `/pacientes/:id?tab=rutinas` | Historial de versiones de la rutina con el motivo de cada cambio |
-| `/pacientes/:id/informe` | Informe imprimible / "Guardar como PDF" por período |
-| `/asignar` | Nueva rutina en 4 pasos: paciente → días + ejercicios (hasta 3) o plantilla → consola → confirmar |
-| `/ejercicios` | Biblioteca de ejercicios con demostración animada (se reemplaza por video en `VIDEOS`) |
-| `/consolas` | Estado de cada Raspberry, última sincronización, sesiones pendientes |
-| `/profesionales` | Solo admin: habilitar o retirar acceso |
+| Logo oficial | `public/logo-navy.svg` (fondos claros), `public/logo-crema.svg` (fondos oscuros), `public/isotipo.svg` (favicon) |
+| Personita animada | `src/lib/brand.jsx`. Está armada con las piezas reales del isotipo (`public/iso-k.png` y `public/iso-punto.png`) |
+| Juego de la tele | `src/components/Game.jsx` |
+| Prototipos de "Cómo funciona" | `src/components/HowItWorks.jsx`. Al principio del archivo explica cómo reemplazarlos por imágenes |
+| Textos de cada sección | `src/components/Sections.jsx`, `Support.jsx`, `Team.jsx`, `Faq.jsx`, `Contact.jsx` |
+| Foto de Carolina | Guardala en `public/carolina.jpg` y cambiá `photo: null` en `src/components/Team.jsx` |
+| Fotos de Kinima Photography | Guardalas en `public/fotos/` y completá `src` en `WORKS`, en `src/pages/Photography.jsx` |
+| Colores y estilos | `src/styles.css`. Los colores de marca están al principio, en `:root` |
 
-## Funciones clínicas
-- **Sugerencias de ajuste**: si las últimas 3 sesiones con la rutina actual superan 85% se propone más dificultad; si quedan bajo 45%, menos. Nunca se aplican solas.
-- **Cambios marcados en la curva**: cada versión de rutina aparece como línea punteada (v2, v3…).
-- **Objetivos terapéuticos**: metas medibles por puntaje, constancia o alcance en una zona, con plazo y barra de avance.
-- **Familia**: mensajes y ánimo después de jugar (😄 🙂 😴 😣). Si marcan "le molestó", aparece arriba en "Para revisar hoy".
-
-## Conectar con la API central
-Todo pasa por `src/lib/api.js`. Hoy devuelve datos de prueba; para conectarlo a la API (por ejemplo `https://central.kinima.uy`)
-se reemplaza cada función por un `fetch` a la ruta correspondiente, devolviendo los mismos campos. Las pantallas no cambian.
-
-- El portal **nunca** guarda contraseñas de la base de datos ni secretos: solo habla con la API.
-- La API tiene que permitir pedidos desde `https://portal.kinima.uy` (CORS) y manejar la sesión (idealmente con cookie segura).
-
-## Publicar
-Proyecto separado de la web pública: repo propio en GitHub → proyecto nuevo en Vercel → dominio `portal.kinima.uy`.
-`vercel.json` hace que las rutas funcionen al recargar.
+## Accesibilidad
+- Botón para pausar todo el movimiento (abajo a la derecha). Si el sistema pide reducir movimiento, la web arranca pausada.
+- Se puede navegar con teclado y los formularios tienen etiquetas y mensajes de error claros.
