@@ -1,4 +1,3 @@
-import { useId } from "react";
 
 /** Ruta a un archivo de /public, respetando la base del sitio. */
 export const asset = (p) => import.meta.env.BASE_URL + p;
@@ -40,56 +39,3 @@ export function Iso({ color = COLORS.teal, className, width = 40, ...rest }) {
   );
 }
 
-/**
- * Personita animable hecha con las piezas reales del isotipo:
- * brazos (palo de la K), piernas (los dos pétalos) y cabeza (el punto).
- * Se renderiza como <g> para poder usarla dentro de otra escena SVG.
- */
-export function PersonParts({ shadow = COLORS.navy, shadowOpacity = 0.1 }) {
-  const id = useId().replace(/:/g, "");
-  const kImg = <image href={asset("iso-k.png")} width="360" height="522" transform="translate(177.6 414.72) scale(.48)" />;
-  const part = (clip) => (
-    <g transform={ROT}>
-      <g clipPath={`url(#${id}${clip})`}>
-        <g clipPath={`url(#${id}k)`}>{kImg}</g>
-      </g>
-    </g>
-  );
-  return (
-    <>
-      <defs>
-        <clipPath id={`${id}k`}><path d={K_PATH} /></clipPath>
-        <clipPath id={`${id}c`}><circle cx="122.61" cy="540" r="40" /></clipPath>
-        <clipPath id={`${id}stem`}><rect x="150" y="400" width="86" height="280" /></clipPath>
-        <clipPath id={`${id}up`}><rect x="220" y="400" width="160" height="140.5" /></clipPath>
-        <clipPath id={`${id}lo`}><rect x="220" y="539.5" width="160" height="160" /></clipPath>
-      </defs>
-      <ellipse className="shadow" cx="213.5" cy="680" rx="100" ry="9" fill={shadow} opacity={shadowOpacity} />
-      <g className="hop">
-        <g className="fig">
-          <g className="legR">{part("up")}</g>
-          <g className="legL">{part("lo")}</g>
-          <g className="torso">
-            <g className="arms">{part("stem")}</g>
-            <g className="head">
-              <g transform={ROT}>
-                <g clipPath={`url(#${id}c)`}>
-                  <image href={asset("iso-punto.png")} width="189" height="188" transform="translate(77.28 494.88) scale(.48)" />
-                </g>
-              </g>
-            </g>
-          </g>
-        </g>
-      </g>
-      <g className="fx" />
-    </>
-  );
-}
-
-export const PERSON_VIEWBOX = "40 370 348 330";
-
-/** Busca las piezas de una personita dentro de un nodo. */
-export function personRefs(root) {
-  const q = (s) => root.querySelector(s);
-  return { root, hop: q(".hop"), fig: q(".fig"), legR: q(".legR"), legL: q(".legL"), torso: q(".torso"), arms: q(".arms"), head: q(".head"), shadow: q(".shadow"), fx: q(".fx") };
-}

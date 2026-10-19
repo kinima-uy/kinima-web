@@ -1,30 +1,41 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, MemoryRouter, Routes, Route } from "react-router-dom";
-import { MotionProvider, MotionToggle } from "./lib/motion.jsx";
-import Home from "./pages/Home.jsx";
-import Photography from "./pages/Photography.jsx";
-import Robotec from "./pages/Robotec.jsx";
-import Cursor from "./components/Cursor.jsx";
+import { BrowserRouter, MemoryRouter, Routes, Route, Navigate, Link } from "react-router-dom";
+import { AuthProvider, RequireAuth } from "./lib/auth.jsx";
+import Layout from "./components/Layout.jsx";
+import Login from "./pages/Login.jsx";
+import Pacientes from "./pages/Pacientes.jsx";
+import Paciente from "./pages/Paciente.jsx";
+import Asignar from "./pages/Asignar.jsx";
+import Consolas from "./pages/Consolas.jsx";
+import Profesionales from "./pages/Profesionales.jsx";
+import Ejercicios from "./pages/Ejercicios.jsx";
+import Informe from "./pages/Informe.jsx";
+import { Empty } from "./components/ui.jsx";
 import "./styles.css";
-import { SHOW_PHOTOGRAPHY } from "./config.js";
 
-/* En Netlify se usa BrowserRouter (URLs reales como /fotografia). La vista previa usa MemoryRouter. */
+/* En la web publicada (portal.kinima.uy) se usa BrowserRouter. La vista previa usa MemoryRouter. */
 const Router = import.meta.env.VITE_PREVIEW ? MemoryRouter : BrowserRouter;
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <MotionProvider>
+    <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          {SHOW_PHOTOGRAPHY && <Route path="/fotografia" element={<Photography />} />}
-          <Route path="/robotec" element={<Robotec />} />
-          <Route path="*" element={<Home />} />
+          <Route path="/ingresar" element={<Login />} />
+          <Route element={<RequireAuth><Layout /></RequireAuth>}>
+            <Route path="/" element={<Navigate to="/pacientes" replace />} />
+            <Route path="/pacientes" element={<Pacientes />} />
+            <Route path="/pacientes/:id" element={<Paciente />} />
+            <Route path="/pacientes/:id/informe" element={<Informe />} />
+            <Route path="/asignar" element={<Asignar />} />
+            <Route path="/ejercicios" element={<Ejercicios />} />
+            <Route path="/consolas" element={<Consolas />} />
+            <Route path="/profesionales" element={<RequireAuth admin><Profesionales /></RequireAuth>} />
+            <Route path="*" element={<div className="page"><Empty icon="alerta" title="Esta página no existe"><Link to="/pacientes">Volver a pacientes</Link></Empty></div>} />
+          </Route>
         </Routes>
       </Router>
-      <MotionToggle />
-      <Cursor />
-    </MotionProvider>
+    </AuthProvider>
   </StrictMode>
 );
