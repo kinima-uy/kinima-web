@@ -226,7 +226,7 @@ export function Footer() {
           </div>
           <div className="foot-cols">
             <nav aria-label="Explorá"><p className="fh">Explorá</p><a href="#propuesta">El proyecto</a><a href="#como-funciona">Cómo funciona</a><a href="#apoya">Apoyá Kinima</a>{SHOW_PHOTOGRAPHY && <Link to="/fotografia">Kinima Photography</Link>}</nav>
-            <nav aria-label="Conectemos"><p className="fh">Conectemos</p><a href="#contacto">Contacto</a><a href="mailto:kinima.uruguay@gmail.com">kinima.uruguay@gmail.com</a><a href="https://www.instagram.com/kinima.uy/" target="_blank" rel="noopener noreferrer">Instagram @kinima.uy</a><a href="https://www.linkedin.com/in/solalexandrovic/" target="_blank" rel="noopener noreferrer">LinkedIn de Sol</a><a href="https://www.linkedin.com/in/carolina-aizenstat-a446b32ab/" target="_blank" rel="noopener noreferrer">LinkedIn de Carolina</a></nav>
+            <nav aria-label="Conectemos"><p className="fh">Conectemos</p><a href="#contacto">Contacto</a><a href="mailto:contacto@kinima.uy">contacto@kinima.uy</a><a href="https://www.instagram.com/kinima.uy/" target="_blank" rel="noopener noreferrer">Instagram @kinima.uy</a><a href="https://www.linkedin.com/in/solalexandrovic/" target="_blank" rel="noopener noreferrer">LinkedIn de Sol</a><a href="https://www.linkedin.com/in/carolina-aizenstat-a446b32ab/" target="_blank" rel="noopener noreferrer">LinkedIn de Carolina</a></nav>
           </div>
         </div>
         <Link className="foot-sponsor" to="/robotec">Sponsor principal <RobotecLogo variant="light" height={20} /></Link>

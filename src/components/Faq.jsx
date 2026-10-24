@@ -21,7 +21,7 @@ const FAQS = [
   { c: "spo", q: "¿Qué gana mi empresa al apoyar Kinima?", a: "Asociarse a un proyecto de innovación con impacto social, presencia de marca en la web y la presentación, y acceso a los avances. Las formas de reconocimiento las definimos juntos." },
   SHOW_PHOTOGRAPHY && { c: "spo", q: "Hice una sesión de fotos con Kinima Photography, ¿cómo sigo el proyecto?", a: "Escribinos eligiendo \"Ya hice una sesión de fotos\" en el formulario y te mandamos el estado actualizado del proyecto." },
   SHOW_PHOTOGRAPHY && { c: "spo", q: "¿Qué fotos hacen en Kinima Photography?", a: "Fotografía en general: deporte, mascotas, retratos, eventos y lo que se te ocurra. Escribinos con tu idea y lo hablamos." },
-  { c: "all", q: "¿Cómo puedo contactar al equipo?", a: "Con el formulario de esta página, por mail a kinima.uruguay@gmail.com o por Instagram en @kinima.uy." },
+  { c: "all", q: "¿Cómo puedo contactar al equipo?", a: "Con el formulario de esta página, por mail a contacto@kinima.uy o por Instagram en @kinima.uy." },
 ].filter(Boolean);
 const FILTERS = [["all", "Todas"], ["fam", "Familias"], ["pro", "Profesionales y centros"], ["spo", "Sponsors y colaboradores"]];
 

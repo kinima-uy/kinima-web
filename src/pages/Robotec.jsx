@@ -78,7 +78,7 @@ export default function Robotec() {
           <Link className="btn btn-navy" to="/#contacto" state={{ motivo: "Sponsor", msg: "Hola, nos interesa apoyar Kinima como sponsor." }}>Quiero apoyar Kinima <span aria-hidden="true">→</span></Link>
         </div>
       </main>
-      <footer className="pp-footer"><div className="wrap"><span>© 2026 Kinima · Gracias a Robotec, nuestro sponsor principal</span><span style={{ display: "flex", flexWrap: "wrap", gap: "8px 20px" }}><a href="mailto:kinima.uruguay@gmail.com">kinima.uruguay@gmail.com</a><a href="https://www.instagram.com/kinima.uy/" target="_blank" rel="noopener noreferrer">Instagram @kinima.uy</a><Link to="/">Volver a Kinima</Link></span></div></footer>
+      <footer className="pp-footer"><div className="wrap"><span>© 2026 Kinima · Gracias a Robotec, nuestro sponsor principal</span><span style={{ display: "flex", flexWrap: "wrap", gap: "8px 20px" }}><a href="mailto:contacto@kinima.uy">contacto@kinima.uy</a><a href="https://www.instagram.com/kinima.uy/" target="_blank" rel="noopener noreferrer">Instagram @kinima.uy</a><Link to="/">Volver a Kinima</Link></span></div></footer>
     </>
   );
 }

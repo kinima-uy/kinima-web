@@ -146,7 +146,7 @@ export default function Photography() {
           <Link className="btn btn-navy" to="/#contacto" state={PAQUETE}>Solicitar el estado <span aria-hidden="true">→</span></Link>
         </div>
       </main>
-      <footer className="pp-footer"><div className="wrap"><span>© 2026 Kinima Photography · Fondos para el desarrollo de Kinima</span><span style={{ display: "flex", flexWrap: "wrap", gap: "8px 20px" }}><a href="mailto:kinima.uruguay@gmail.com">kinima.uruguay@gmail.com</a><a href="https://www.instagram.com/kinima.uy/" target="_blank" rel="noopener noreferrer">Instagram @kinima.uy</a><Link to="/">Volver a Kinima</Link></span></div></footer>
+      <footer className="pp-footer"><div className="wrap"><span>© 2026 Kinima Photography · Fondos para el desarrollo de Kinima</span><span style={{ display: "flex", flexWrap: "wrap", gap: "8px 20px" }}><a href="mailto:contacto@kinima.uy">contacto@kinima.uy</a><a href="https://www.instagram.com/kinima.uy/" target="_blank" rel="noopener noreferrer">Instagram @kinima.uy</a><Link to="/">Volver a Kinima</Link></span></div></footer>
       {open >= 0 && <Lightbox i={open} lista={lista} onClose={() => setOpen(-1)} onMove={move} />}
     </>
   );

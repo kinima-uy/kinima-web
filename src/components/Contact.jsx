@@ -138,9 +138,9 @@ export default function Contact() {
             <span className="gline" />
             <p className="lead">Si te interesa conocer más, colaborar o explorar una posible alianza, nos encantaría conversar.</p>
             <div className="channels">
-              <a className="mail" href="mailto:kinima.uruguay@gmail.com">
+              <a className="mail" href="mailto:contacto@kinima.uy">
                 <Icon name="mail" size={20} />
-                kinima.uruguay@gmail.com
+                contacto@kinima.uy
               </a>
               <a className="mail" href="https://www.instagram.com/kinima.uy/" target="_blank" rel="noopener noreferrer">
                 <Icon name="instagram" size={20} />
