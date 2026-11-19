@@ -42,8 +42,24 @@ const WORKS = [
   F("handball-11", "handball", 1200, 800, "Foto del plantel campeón con la copa"),
   F("retratos-07", "retratos", 800, 1200, "Joven sentada en un banco de madera mirando a cámara"),
   F("futbol-10", "futbol", 900, 1200, "Arquera camina por la cancha con la pelota bajo el brazo"),
+  F("futbol-11", "futbol", 800, 1200, "Jugadora de violeta remata mientras una rival de verde se acerca a presionar"),
+  F("futbol-16", "futbol", 800, 1200, "Jugadora de violeta corre en el campo escapando de la marca de una rival"),
+  F("show-01", "shows", 1200, 800, "Tres amigos posan sonrientes en el boliche antes del show"),
+  F("futbol-13", "futbol", 800, 1200, "Jugadora de verde protege la pelota del marcaje de una rival de violeta"),
+  F("show-05", "shows", 800, 1200, "El público mira el escenario en blanco y negro, algunos con un trago en la mano"),
+  F("futbol-17", "futbol", 800, 1200, "Dos jugadoras saltan disputando un cabezazo frente al arco"),
+  F("show-03", "shows", 800, 1200, "El cantante toca una guitarra roja mientras canta sobre el escenario"),
+  F("futbol-12", "futbol", 800, 1200, "Arquera de naranja patea el balón lejos desde el fondo de su campo"),
+  F("show-08", "shows", 1200, 800, "La banda completa toca en el escenario: bajista, cantante y baterista"),
+  F("futbol-18", "futbol", 800, 1200, "Tres jugadoras disputan la pelota cuerpo a cuerpo cerca del arco"),
+  F("show-06", "shows", 800, 1200, "El baterista se recorta en rojo detrás de su batería durante el show"),
+  F("futbol-14", "futbol", 800, 1200, "Jugadora de verde lanza el balón de saque de banda con los brazos en alto"),
+  F("show-02", "shows", 1200, 800, "El cantante con anteojos canta frente al micrófono bajo una luz dorada"),
+  F("futbol-15", "futbol", 800, 1200, "Jugadora de violeta conduce la pelota perseguida de cerca por una rival de verde"),
+  F("show-07", "shows", 800, 1200, "El público iluminado de rojo sigue el show con atención"),
+  F("show-04", "shows", 800, 1200, "El cantante toca la guitarra roja de perfil, iluminado por una luz cálida"),
 ];
-const CATEGORIAS = [["todos", "Todas"], ["handball", "Handball"], ["futbol", "Fútbol femenino"], ["mascotas", "Mascotas"], ["retratos", "Retratos"]];
+const CATEGORIAS = [["todos", "Todas"], ["handball", "Handball"], ["futbol", "Fútbol femenino"], ["shows", "Shows en vivo"], ["mascotas", "Mascotas"], ["retratos", "Retratos"]];
 const PACKS = [
   { t: "Deporte", p: "Partidos, torneos y jornadas deportivas, fotos de plantel y retratos de jugadores para las redes del club.", c: "var(--teal)" },
   { t: "Mascotas y retratos", p: "Sesiones al aire libre con tu mascota, retratos para vos o para tu familia.", c: "var(--yellow)" },
