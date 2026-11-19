@@ -26,7 +26,7 @@ export default function Team() {
   return (
     <section className="waved" id="equipo">
       <div className="wrap">
-        <SecHead eyebrow="Detrás del proyecto" title="Conocé al equipo." lead="Somos Sol y Carolina. Nos complementamos: una desde el diseño y la programación de los sistemas, otra desde el hardware y el producto, y el audiovisual y la web los hacemos juntas. Kinima es nuestro proyecto final de Diseño Multimedia en la Universidad ORT Uruguay, desarrollado con el asesoramiento de profesionales de Teletón." />
+        <SecHead eyebrow="Proyecto final de carrera · Diseño Multimedia, ORT Uruguay" title="Conocé al equipo." lead="Kinima es nuestro proyecto final de la carrera de Diseño Multimedia en la Universidad ORT Uruguay, desarrollado con la orientación de profesionales de Teletón. Somos Sol y Carolina: nos complementamos entre el diseño y la programación de los sistemas, el hardware y el producto, y hacemos juntas el audiovisual y la web." />
         <div className="team">
           {TEAM.map((m) => (
             <article className="m" key={m.name}>

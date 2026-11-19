@@ -59,7 +59,7 @@ export function Hero() {
             <a className="btn btn-navy" href="#propuesta">Conocé el proyecto <span aria-hidden="true">→</span></a>
             <a className="btn btn-line" href="#apoya">Quiero colaborar</a>
           </div>
-          <p className="advised"><span aria-hidden="true" />Con el asesoramiento de profesionales de Teletón</p>
+          <p className="advised"><span aria-hidden="true" />Con la orientación de profesionales de Teletón</p>
           <p className="advised"><span aria-hidden="true" />Sponsor principal:&nbsp;<Link to="/robotec">Robotec</Link></p>
           <div className="trio">
             <span><b style={{ background: "var(--teal)" }} />Juego en la tele</span>
@@ -115,7 +115,7 @@ export function Challenge() {
           <div className="teleton-txt">
             <p className="eyebrow">Por qué Teletón</p>
             <h3>Aprendemos de quienes acompañan la rehabilitación infantil todos los días.</h3>
-            <p>Kinima cuenta con el asesoramiento de profesionales de Teletón. Su experiencia nos ayuda a entender qué pasa con los niños y sus familias entre una sesión y otra, y a pensar cada parte del sistema desde las necesidades reales de la rehabilitación.</p>
+            <p>Kinima cuenta con la orientación de profesionales de Teletón. Su experiencia nos ayuda a entender qué pasa con los niños y sus familias entre una sesión y otra, y a pensar cada parte del sistema desde las necesidades reales de la rehabilitación.</p>
           </div>
         </div>
       </div>
@@ -186,7 +186,7 @@ export function Status() {
     return () => removeEventListener("scroll", upd);
   }, []);
   const steps = [
-    { s: "done", t: "01 · Investigación y concepto", d: "Completo · con el asesoramiento de profesionales de Teletón" },
+    { s: "done", t: "01 · Investigación y concepto", d: "Completo · con la orientación de profesionales de Teletón" },
     { s: "done", t: "02 · Identidad y diseño del sistema", d: "Completo" },
     { s: "now", t: "03 · Prototipado", d: "En curso · presentación en diciembre 2026" },
     { s: "", t: "04 · Pruebas y validación", d: "Diciembre 2026 a febrero 2027" },
@@ -230,7 +230,7 @@ export function Footer() {
           </div>
         </div>
         <Link className="foot-sponsor" to="/robotec">Sponsor principal <RobotecLogo variant="light" height={20} /></Link>
-        <div className="foot-bottom"><span>© 2026 Kinima · Proyecto en desarrollo · Diseño Multimedia, Universidad ORT Uruguay · Con el asesoramiento de profesionales de Teletón</span><a href="#privacidad">Privacidad</a></div>
+        <div className="foot-bottom"><span>© 2026 Kinima · Proyecto final de la carrera de Diseño Multimedia, Universidad ORT Uruguay · Con la orientación de profesionales de Teletón</span><a href="#privacidad">Privacidad</a></div>
       </div>
     </footer>
   );
