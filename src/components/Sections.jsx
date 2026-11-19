@@ -59,6 +59,7 @@ export function Hero() {
             <a className="btn btn-navy" href="#propuesta">Conocé el proyecto <span aria-hidden="true">→</span></a>
             <a className="btn btn-line" href="#apoya">Quiero colaborar</a>
           </div>
+          <p className="advised"><span aria-hidden="true" />Proyecto final de la carrera de Diseño Multimedia, Universidad ORT Uruguay</p>
           <p className="advised"><span aria-hidden="true" />Con la orientación de profesionales de Teletón</p>
           <p className="advised"><span aria-hidden="true" />Sponsor principal:&nbsp;<Link to="/robotec">Robotec</Link></p>
           <div className="trio">
