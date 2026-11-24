@@ -5,6 +5,7 @@ import { MotionProvider, MotionToggle } from "./lib/motion.jsx";
 import Home from "./pages/Home.jsx";
 import Photography from "./pages/Photography.jsx";
 import Robotec from "./pages/Robotec.jsx";
+import Proceso from "./pages/Proceso.jsx";
 import Cursor from "./components/Cursor.jsx";
 import "./styles.css";
 import { SHOW_PHOTOGRAPHY } from "./config.js";
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/" element={<Home />} />
           {SHOW_PHOTOGRAPHY && <Route path="/fotografia" element={<Photography />} />}
           <Route path="/robotec" element={<Robotec />} />
+          <Route path="/proceso" element={<Proceso />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Router>
