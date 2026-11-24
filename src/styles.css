@@ -642,3 +642,41 @@ a.mail:hover{color:var(--tealtx)}
 .proc-dots{display:flex;gap:8px}
 .proc-dot{width:10px;height:10px;border-radius:50%;border:0;background:var(--line);cursor:pointer;padding:0;transition:transform .2s,background .2s}
 .proc-dot.on{background:var(--c);transform:scale(1.35)}
+
+/* /proceso: mini juego jugable (elegir nivel → jugar → resultado) */
+.mj-niveles{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:36px 0 48px; }
+.mj-nivel{ background:var(--white); border:1px solid var(--line); border-radius:18px; padding:22px 18px; text-align:left; cursor:pointer; display:flex; flex-direction:column; gap:6px; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+.mj-nivel:hover{ transform:translateY(-3px); border-color:var(--c); box-shadow:0 10px 24px -14px rgba(25,50,74,.25); }
+.mj-nivel-ico{ width:40px; height:40px; border-radius:12px; background:var(--bg); display:flex; align-items:center; justify-content:center; margin-bottom:4px; }
+.mj-nivel strong{ font-family:var(--display); font-size:1.1rem; color:var(--navy); }
+.mj-nivel p{ margin:0; color:var(--muted); font-size:.92rem; }
+.mj-nivel-meta{ margin-top:6px; font-size:.78rem; font-weight:700; color:var(--tc); }
+
+.mj-juego{ position:relative; max-width:640px; margin:28px auto 44px; border-radius:22px; overflow:hidden; border:1px solid var(--line); box-shadow:0 18px 40px -24px rgba(25,50,74,.3); background:var(--white); }
+.mj-scene{ display:block; width:100%; height:auto; }
+.kid-svg{ overflow:visible; }
+.mj-hud{ position:absolute; top:12px; left:12px; right:12px; display:flex; justify-content:space-between; gap:8px; }
+.mj-pill{ background:var(--bg,var(--white)); color:var(--tc,var(--navy)); border:1px solid var(--line); border-radius:999px; padding:6px 12px; font-size:.82rem; font-weight:800; box-shadow:0 4px 10px -6px rgba(25,50,74,.2); }
+.mj-count{ background:var(--white); }
+.mj-bubble{ position:absolute; bottom:12px; left:12px; right:12px; background:var(--navy); color:var(--cream); border-radius:14px; padding:10px 14px; font-size:.88rem; display:flex; align-items:center; gap:8px; }
+.mj-bubble i{ width:8px; height:8px; border-radius:50%; background:var(--teal); flex:none; }
+
+.mj-resultado{ display:grid; grid-template-columns:280px 1fr; gap:36px; align-items:center; margin:36px 0 48px; }
+.mj-phone{ background:var(--navy); color:var(--cream); border-radius:28px; padding:22px 20px; box-shadow:0 20px 40px -20px rgba(25,50,74,.5); }
+.mj-phone-top{ display:flex; align-items:center; gap:8px; font-size:.8rem; opacity:.8; margin-bottom:14px; }
+.mj-phone-label{ margin:0; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; opacity:.6; }
+.mj-phone h3{ font-family:var(--display); margin:2px 0 14px; font-size:1.2rem; }
+.mj-phone-row{ display:flex; gap:10px; align-items:flex-start; background:rgba(255,255,255,.06); border-radius:14px; padding:12px; margin-bottom:14px; }
+.mj-phone-check{ width:26px; height:26px; border-radius:50%; background:var(--teal); display:flex; align-items:center; justify-content:center; flex:none; }
+.mj-phone-row strong{ display:block; font-size:.92rem; }
+.mj-phone-row small{ color:rgba(247,245,239,.65); }
+.mj-phone-bubble{ display:flex; gap:8px; align-items:flex-start; background:rgba(255,255,255,.06); border-radius:14px; padding:12px; }
+.mj-phone-av{ width:24px; height:24px; border-radius:50%; background:var(--yellow); color:var(--navy); font-weight:800; font-size:.78rem; display:flex; align-items:center; justify-content:center; flex:none; }
+.mj-phone-bubble p{ margin:0; font-size:.86rem; line-height:1.4; }
+.mj-resultado-txt h2{ font-family:var(--display); margin:4px 0 10px; }
+.mj-resultado-btns{ display:flex; gap:12px; margin-top:16px; flex-wrap:wrap; }
+
+@media (max-width: 760px){
+  .mj-niveles{ grid-template-columns:1fr; }
+  .mj-resultado{ grid-template-columns:1fr; }
+}
