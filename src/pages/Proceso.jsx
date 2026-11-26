@@ -86,8 +86,14 @@ function MiniJuego({ nivel, onTerminado }) {
   const starXRef = useRef(160);
   const [catches, setCatches] = useState(0);
   const [starX, setStarX] = useState(160);
-  const [toast, setToast] = useState("¡Usá ← → para moverte y ↑ para saltar!");
+  const [toast, setToast] = useState(null);
   const startedAt = useRef(Date.now());
+
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 700);
+    return () => clearTimeout(t);
+  }, [toast]);
 
   useEffect(() => { starXRef.current = starX; }, [starX]);
 
@@ -116,7 +122,7 @@ function MiniJuego({ nivel, onTerminado }) {
             if (Math.abs(kidCenter - starXRef.current) <= nivel.radius) {
               const btl = gsap.timeline();
               burst(host.querySelector(".mj-sfx"), btl, 0, starXRef.current, 80, 9, 26, 2.6);
-              setToast("¡Atrapaste! 🎉");
+              setToast("si");
               setCatches((n) => {
                 const next = n + 1;
                 if (next >= nivel.target) {
@@ -128,7 +134,7 @@ function MiniJuego({ nivel, onTerminado }) {
                 return next;
               });
             } else {
-              setToast("Casi — acercate más a la estrella antes de saltar.");
+              setToast("no");
             }
           }).eventCallback("onComplete", () => { jumpingRef.current = false; });
         }
@@ -163,9 +169,14 @@ function MiniJuego({ nivel, onTerminado }) {
       </svg>
       <div className="mj-hud">
         <span className="mj-pill" style={{ "--c": nivel.c, "--bg": nivel.bg, "--tc": nivel.tc }}>{nivel.label}</span>
-        <span className="mj-pill mj-count">{catches} / {nivel.target} ⭐</span>
+        <span className="mj-pill mj-count">
+          {Array.from({ length: nivel.target }).map((_, i) => <span key={i} className={`mj-star-dot ${i < catches ? "on" : ""}`}>★</span>)}
+        </span>
       </div>
-      <div className="mj-bubble"><i />{toast}</div>
+      {toast && <div className={`mj-toast ${toast}`}>{toast === "si" ? "★" : "✕"}</div>}
+      <div className="mj-keys">
+        <span className="mj-key">←</span><span className="mj-key">→</span><span className="mj-key mj-key-wide">↑</span>
+      </div>
     </div>
   );
 }
@@ -173,12 +184,12 @@ function MiniJuego({ nivel, onTerminado }) {
 function ElegirNivel({ onElegir }) {
   return (
     <div className="mj-niveles">
-      {NIVELES.map((n) => (
+      {NIVELES.map((n, i) => (
         <button key={n.id} className="mj-nivel" style={{ "--c": n.c, "--bg": n.bg, "--tc": n.tc }} onClick={() => onElegir(n)}>
-          <span className="mj-nivel-ico"><Icon name="rutina" size={22} color={n.tc} /></span>
+          <span className="mj-nivel-ico"><Icon name="rutina" size={28} color={n.tc} /></span>
           <strong>{n.label}</strong>
-          <p>{n.desc}</p>
-          <span className="mj-nivel-meta">{n.target} aciertos</span>
+          <span className="mj-nivel-dots">{[0, 1, 2].map((d) => <i key={d} className={d <= i ? "on" : ""} />)}</span>
+          <span className="mj-nivel-stars">{Array.from({ length: n.target }).map((_, s) => <span key={s}>★</span>)}</span>
         </button>
       ))}
     </div>
@@ -189,27 +200,25 @@ function Resultado({ nivel, segundos, onJugarDeNuevo, onOtroNivel }) {
   const mm = String(Math.floor(segundos / 60)).padStart(2, "0"), ss = String(segundos % 60).padStart(2, "0");
   return (
     <div className="mj-resultado">
+      <div className="mj-puente">
+        <div className="mj-puente-ico mj-puente-casa"><Icon name="casa" size={26} color={COLORS.yellow} /><span>Vos, en casa</span></div>
+        <span className="mj-puente-flecha"><Icon name="flecha" size={20} color="var(--muted)" /></span>
+        <div className="mj-puente-ico mj-puente-prof"><Icon name="centro" size={26} color={COLORS.teal} /><span>Tu profesional</span></div>
+      </div>
       <div className="mj-phone">
-        <div className="mj-phone-top"><Iso color={COLORS.teal} width={20} /><span>App de familias</span></div>
-        <p className="mj-phone-label">Hoy</p>
-        <h3>Rutina de equilibrio</h3>
+        <div className="mj-phone-top"><Iso color={COLORS.teal} width={18} /><span>App de familias</span></div>
         <div className="mj-phone-row">
-          <span className="mj-phone-check"><Icon name="check" size={16} color="#fff" /></span>
-          <div><strong>Sesión completada en casa</strong><small>{nivel.target} de {nivel.target} aciertos · {mm}:{ss} min</small></div>
+          <span className="mj-phone-check"><Icon name="check" size={18} color="#fff" /></span>
+          <div><strong>¡Listo!</strong><small>{nivel.target}/{nivel.target} ★ · {mm}:{ss}</small></div>
         </div>
         <div className="mj-phone-bubble">
           <span className="mj-phone-av">P</span>
-          <p>¡Muy bien! Lo vimos en el centro — en la próxima sesión seguimos subiendo el nivel.</p>
+          <p>¡Muy bien! 👏</p>
         </div>
       </div>
-      <div className="mj-resultado-txt">
-        <p className="eyebrow">Así se cierra el círculo</p>
-        <h2>Lo que jugaste recién es lo que tu profesional ve después.</h2>
-        <p className="lead">Cada sesión en casa queda registrada así de simple: qué se jugó, cuántos aciertos y cuánto duró. Con eso, el profesional ajusta la próxima actividad.</p>
-        <div className="mj-resultado-btns">
-          <button className="btn btn-line" onClick={onJugarDeNuevo}>Jugar de nuevo</button>
-          <button className="btn btn-line" onClick={onOtroNivel}>Elegir otro nivel</button>
-        </div>
+      <div className="mj-resultado-btns">
+        <button className="btn btn-line" onClick={onJugarDeNuevo}>Jugar de nuevo</button>
+        <button className="btn btn-line" onClick={onOtroNivel}>Otro nivel</button>
       </div>
     </div>
   );
@@ -235,14 +244,11 @@ export default function Proceso() {
       </header>
 
       <main className="wrap">
-        <div className="proc-hero">
-          <p className="eyebrow">Una mini versión de Kinima</p>
-          <h1>Probá, en un minuto, lo que un niño juega en su casa.</h1>
-          <p className="lead">
-            {stage === "nivel" && "Elegí un nivel — así como lo elige el profesional — y después jugá con las flechas del teclado."}
-            {stage === "jugar" && "Usá ← → para moverte y ↑ (o espacio) para saltar y atrapar la estrella."}
-            {stage === "resultado" && "Así quedó registrada tu sesión, lista para que el profesional la revise."}
-          </p>
+        <div className="proc-hero mj-hero">
+          <p className="eyebrow">Jugá como en casa</p>
+          {stage === "nivel" && <h1>Elegí un nivel</h1>}
+          {stage === "jugar" && <h1>¡Atrapá las estrellas!</h1>}
+          {stage === "resultado" && <h1>¡Bien ahí! 🎉</h1>}
         </div>
 
         {stage === "nivel" && <ElegirNivel onElegir={elegir} />}
@@ -253,9 +259,8 @@ export default function Proceso() {
             onOtroNivel={() => { setNivel(null); setStage("nivel"); }} />
         )}
 
-        <div className="pp-cta">
-          <div><h2>Esto es un módulo de referencia.</h2><p>Mientras definimos cómo se integra a la página principal, lo dejamos accesible acá.</p></div>
-          <Link className="btn btn-line" to="/#como-funciona">Ver "Cómo funciona" en la home <span aria-hidden="true">→</span></Link>
+        <div className="pp-cta mj-cta">
+          <Link className="btn btn-line" to="/#como-funciona">Ver "Cómo funciona" <span aria-hidden="true">→</span></Link>
         </div>
       </main>
 

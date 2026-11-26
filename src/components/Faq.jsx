@@ -5,7 +5,7 @@ import { SHOW_PHOTOGRAPHY } from "../config.js";
 const WHO = { all: "General", fam: "Familias", pro: "Profesionales", spo: "Sponsors" };
 const FAQS = [
   { c: "all", q: "¿Qué es Kinima?", a: "Un sistema en desarrollo que busca dar continuidad a la rehabilitación infantil en el hogar. Combina un dispositivo, un juego en la tele, una app para la familia y un portal para el profesional." },
-  { c: "all", q: "¿Qué tiene que ver Teletón con Kinima?", a: "Kinima cuenta con la orientación de profesionales de Teletón, que nos ayudan a entender la rehabilitación infantil y lo que pasa en casa entre sesiones. No es un producto de Teletón ni tenemos un convenio formal: es nuestro proyecto, pensado junto a su experiencia." },
+  { c: "all", q: "¿Qué tiene que ver Teletón con Kinima?", a: "Kinima cuenta con la orientación de profesionales de Teletón, que nos ayudan a entender la rehabilitación infantil y lo que pasa en casa entre sesiones. No es un producto de Teletón ni tenemos un convenio formal: es nuestro proyecto de fin de carrera, que toma la experiencia de Teletón como insumo para pensarlo y desarrollarlo." },
   { c: "all", q: "¿Kinima ya está disponible?", a: "Todavía no. Estamos en etapa de prototipado y planeamos pruebas entre diciembre de 2026 y febrero de 2027." },
   { c: "all", q: "¿Dónde trabajan?", a: "Somos de Montevideo, Uruguay. El proyecto nace en la Universidad ORT Uruguay y las primeras pruebas van a ser en Uruguay." },
   { c: "fam", q: "¿Cualquiera puede acceder al kit?", a: "La idea es que el kit llegue a cada familia a través de su profesional o centro de rehabilitación, que es quien decide si Kinima es adecuado para ese niño y arma su rutina. Si te interesa, dejanos tu contacto y te avisamos cuando haya novedades." },
